@@ -10,9 +10,9 @@ function getCurrentYear() {
 }
 ---
 
-<footer>
+<footer class="bg-[#000000e6] text-gray-100 py-7 mt-4">
     <div class="wrapper footer-grid">
-        <ul class="flex-row">
+        <ul class="flex flex-wrap w-full gap-4 items-center justify-evenly">
             {
                 footer.map((item) => (
                     <li>
@@ -21,53 +21,30 @@ function getCurrentYear() {
                 ))
             }
         </ul>
-        <div class="copy">
-            Copyright © {getCurrentYear} | TheLoneVoice.in
+        <div class="text-center copy">
+            Copyright © {getCurrentYear} | LoneVoice.in
         </div>
     </div>
 </footer>
 
 <style>
-    footer {
-        background-color: #000000e6;
-        color: var(--clr-light);
-        padding-block: 1.5rem;
-    }
-
     .footer-grid {
         display: grid;
         gap: 0.75rem;
         grid-template-columns: 1fr;
-
-        @media (min-width: 800px) {
+    }
+    @media (min-width: 800px) {
+        .footer-grid {
             grid-template-columns: 2fr 1fr;
             gap: 0.25rem;
         }
-    }
 
-    ul {
-        list-style: none;
-        padding: 0;
-        width: 100%;
-        gap: 1rem;
-        align-items: center;
-        justify-content: space-evenly;
-
-        @media (min-width: 800px) {
+        ul {
             justify-content: normal;
             gap: 1.25rem;
         }
-    }
 
-    li a {
-        color: var(--clr-light);
-        font-size: var(--fs-3);
-    }
-
-    .copy {
-        text-align: center;
-
-        @media (min-width: 800px) {
+        .copy {
             text-align: right;
         }
     }

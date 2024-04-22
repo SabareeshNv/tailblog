@@ -14,6 +14,8 @@ import "@fontsource/alegreya-sans/700.css";
 import "@fontsource/alegreya/400.css";
 import "@fontsource/alegreya/700.css";
 
+import { ViewTransitions } from "astro:transitions";
+
 const { title, description } = Astro.props;
 ---
 
@@ -34,3 +36,13 @@ const { title, description } = Astro.props;
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
+{/* Robots.txt equivalent */}
+<meta name="robots" content="index,follow" />
+{/* RSS feed auto-discovery */}
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="LoneVoice.in"
+    href={`${Astro.site}rss.xml`}
+/>
+<ViewTransitions />

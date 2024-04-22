@@ -1,0 +1,19 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+
+const title = "About This Blog";
+const description = "Learn more about us";
+---
+
+<BaseLayout {title} {description}>
+    <main class="wrapper py-6">
+        <div class="typography">
+            <h2 class="heading">{title}</h2>
+            <p>
+                This is my humble attempt at being a blogger, writing about
+                topics i find interesting and wish to spread those ideas and
+                information into the world.
+            </p>
+        </div>
+    </main>
+</BaseLayout>
