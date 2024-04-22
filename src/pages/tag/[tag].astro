@@ -1,0 +1,66 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import TagCloud from "src/components/TagCloud.astro";
+import Card from "src/components/Card.astro";
+
+import {
+    fetchAndFilterPosts,
+    generateTagData,
+    unslugify,
+} from "../../utils/helpers";
+
+export async function getStaticPaths() {
+    const posts = await fetchAndFilterPosts();
+
+    const uniqueTags = [
+        ...new Set(posts.flatMap((post) => post.data.tags)),
+    ] as string[];
+
+    const tagData: { name: string; slug: string }[] =
+        generateTagData(uniqueTags);
+
+    return tagData.map((tag) => {
+        const taggedPosts = posts.filter((post) =>
+            post.data.tags.includes(tag.name),
+        );
+
+        return {
+            params: { tag: tag.slug },
+            props: { posts: taggedPosts },
+        };
+    });
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+
+const title = `All posts on the topic of ${unslugify(tag)}`;
+const description = `All posts on the topic of ${tag}`;
+---
+
+<BaseLayout {title} {description}>
+    <main class="wrapper py-6 grid sm:grid-cols-3 gap-8">
+        <div class="sm:col-span-2">
+            <h1 class="text-xl lg:text-2xl xl:text-3xl mb-6">
+                Posts on the topic of <span class="font-bold font-alegreya"
+                    >{`" ${unslugify(tag)} "`}</span
+                >
+            </h1>
+
+            <div class="grid md:grid-cols-2 gap-x-4 gap-y-8">
+                {posts.map((post) => <Card {post} />)}
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <TagCloud />
+        </aside>
+    </main>
+</BaseLayout>
+
+<style>
+    span {
+        color: var(--clr-brand);
+        text-shadow: 1px 1px var(--clr-dark);
+    }
+</style>

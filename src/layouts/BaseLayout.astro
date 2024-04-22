@@ -1,0 +1,22 @@
+---
+import BaseHead from "src/components/BaseHead.astro";
+import Navbar from "src/components/Navbar.astro";
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="antialiased scroll-smooth">
+	<head>
+		<BaseHead {title} {description} />
+	</head>
+	<body class="font-alegreya-sans">
+		<Navbar />
+		<slot />
+	</body>
+</html>

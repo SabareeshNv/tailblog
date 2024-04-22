@@ -1,0 +1,27 @@
+---
+import BaseLayout from "src/layouts/BaseLayout.astro";
+import Card from "src/components/Card.astro";
+import SearchField from "src/components/SearchField.astro";
+import TagCloud from "src/components/TagCloud.astro";
+
+import { fetchAndFilterPosts } from "../utils/helpers";
+
+const posts = await fetchAndFilterPosts();
+
+const title = "Home Page";
+const description = "This is the homepage";
+---
+
+<BaseLayout {title} {description}>
+    <main class="wrapper py-6">
+        <div class="grid sm:grid-cols-3 gap-8">
+            <div class="sm:col-span-2 grid md:grid-cols-2 gap-x-4 gap-y-8">
+                {posts.map((post) => <Card {post} />)}
+            </div>
+            <aside>
+                <SearchField />
+                <TagCloud />
+            </aside>
+        </div>
+    </main>
+</BaseLayout>

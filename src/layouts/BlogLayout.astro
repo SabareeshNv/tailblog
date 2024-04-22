@@ -1,0 +1,17 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Hero from "src/components/Hero.astro";
+
+const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
+---
+
+<BaseLayout {title} {description}>
+    <main data-pagefind-body>
+        <Hero {title} {pubDate} {coverImage} {coverAlt} />
+        <div class="wrapper">
+            <div class="py-4 md:py-6 typography custom-typography">
+                <slot />
+            </div>
+        </div>
+    </main>
+</BaseLayout>
