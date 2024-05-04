@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import Card from "src/components/Card.astro";
+import AboveFoldCard from "src/components/AboveFoldCard.astro";
 import SearchField from "src/components/SearchField.astro";
 import TagCloud from "src/components/TagCloud.astro";
 
@@ -8,15 +9,16 @@ import { fetchAndFilterPosts } from "../utils/helpers";
 
 const posts = await fetchAndFilterPosts();
 
-const title = "Home Page";
-const description = "This is the homepage";
+const title = "Welcome to LoneVoice.in";
+const description = "Home Page of LoneVoice.in";
 ---
 
 <BaseLayout {title} {description}>
     <main class="wrapper py-6">
         <div class="frame-grid">
             <div class="grid sm:grid-cols-2 gap-8">
-                {posts.map((post) => <Card {post} />)}
+                {posts.slice(0, 2).map((post) => <AboveFoldCard {post} />)}
+                {posts.slice(2).map((post) => <Card {post} />)}
             </div>
             <aside>
                 <SearchField />

@@ -10,20 +10,17 @@ const { title, pubDate, coverImage, coverAlt } = Astro.props;
         src={coverImage}
         alt={coverAlt}
         formats={["avif", "webp"]}
-        quality={"max"}
         loading={"eager"}
         fetchpriority={"high"}
         decoding={"sync"}
-        class="hero-image w-full h-full max-h-[550px]"
+        class="hero-image w-full h-full max-h-[600px]"
     />
     <div class="max-w-5xl mx-auto px-6">
-        <div class="absolute bottom-8 md:bottom-16 text-gray-100">
-            <Date
-                date={pubDate}
-                class="text-lg lg:text-xl xl:text-2xl mb-4 lg:mb-6"
-            />
+        <div class="absolute bottom-4 md:bottom-8 lg:bottom-10 text-gray-100">
+            <Date date={pubDate} class="text-lg lg:text-xl mb-2 lg:mb-6" />
             <h1
                 class="hero-title text-3xl lg:text-4xl xl:text-5xl font-bold font-alegreya"
+                data-pagefind-weight="9"
             >
                 {title}
             </h1>
@@ -31,7 +28,7 @@ const { title, pubDate, coverImage, coverAlt } = Astro.props;
     </div>
 </section>
 
-<style>
+<style is:inline>
     .hero-image {
         filter: brightness(0.7);
         background-color: rgb(55, 65, 81);

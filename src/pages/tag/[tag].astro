@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "src/layouts/BaseLayout.astro";
 import TagCloud from "src/components/TagCloud.astro";
+import SearchField from "src/components/SearchField.astro";
 import Card from "src/components/Card.astro";
 
 import {
@@ -34,16 +35,16 @@ export async function getStaticPaths() {
 const { tag } = Astro.params;
 const { posts } = Astro.props;
 
-const title = `All posts on the topic of ${unslugify(tag)}`;
-const description = `All posts on the topic of ${tag}`;
+const title = `Posts about ${unslugify(tag)} | LoneVoice.in`;
+const description = `Posts about ${tag} | LoneVoice.in`;
 ---
 
 <BaseLayout {title} {description}>
     <main class="wrapper py-6">
         <div class="frame-grid">
             <div>
-                <h1 class="text-xl lg:text-2xl xl:text-3xl mb-6">
-                    Posts on the topic of <span class="font-bold font-alegreya"
+                <h1 class="text-2xl xl:text-3xl mb-6 heading">
+                    Posts about <span class="font-bold font-alegreya"
                         >{`" ${unslugify(tag)} "`}</span
                     >
                 </h1>
@@ -53,6 +54,7 @@ const description = `All posts on the topic of ${tag}`;
                 </div>
             </div>
             <aside class="sidebar">
+                <SearchField />
                 <TagCloud />
             </aside>
         </div>

@@ -11,8 +11,8 @@ const tagData: { name: string; slug: string }[] = generateTagData(uniqueTags);
 ---
 
 <tag-cloud class="block">
-    <div class="text-xl lg:text-2xl font-alegreya mb-4 heading">Topics</div>
-    <p class="text-lg mb-4">Here are all the topics i've written on</p>
+    <div class="text-xl lg:text-2xl font-alegreya heading mb-4">Topics</div>
+    <p class="text-lg mb-4">Here are all the topics i've posts written about</p>
     <div class="flex flex-wrap gap-2">
         {
             tagData.map((tag) => (

@@ -8,6 +8,9 @@
     --clr-brand: #990000;
     --clr-accent: #f5f5f4;
     --clr-accent-hover: #d4d4d3ff;
+
+    --clr-primary: #106b76;
+    --clr-secondary: #761B10;
 }
 
 html,
@@ -57,31 +60,28 @@ img {
     }
 }
 
-.typography {
-    @apply prose prose-stone prose-lg md:prose-xl prose-headings:font-alegreya marker:text-stone-800 mx-auto;
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin-bottom: 0.75rem;
-    }
-
-    blockquote {
-        padding: 0.25rem 1rem;
-        border-inline-start: 4px solid var(--clr-dark);
-        background-color: var(--clr-accent);
-        font-style: normal;
-    }
-}
-
 .heading::after {
     content: "";
     display: block;
     margin-top: 10px;
     width: clamp(2em, 25%, 3em);
     height: 3px;
-    background-color: var(--clr-brand);
+    background-color: var(--clr-secondary);
+}
+
+@layer components {
+    .typography {
+        @apply prose text-gray-900 prose-lg md:prose-xl xl:prose-2xl prose-headings:font-alegreya prose-a:text-[var(--clr-secondary)] marker:text-gray-800 mx-auto;
+
+        :is(h1, h2, h3, h4, h5, h6) {
+            margin-bottom: 1rem;
+        }
+
+        blockquote {
+            padding: 0.25rem 1rem;
+            border-inline-start: 4px solid var(--clr-primary);
+            background-color: var(--clr-accent);
+            font-style: normal;
+        }
+    }
 }
