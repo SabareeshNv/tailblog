@@ -49,11 +49,17 @@ const description = `Posts about ${tag} | LoneVoice.in`;
                     >
                 </h1>
 
-                <div class="grid sm:grid-cols-2 gap-8">
-                    {posts.map((post) => <Card {post} />)}
+                <div class="grid sm:grid-cols-2 2xl:grid-cols-3 gap-8">
+                    {
+                        /* First 2 images should not be lazy loaded to please Google */
+                        posts
+                            .slice(0, 2)
+                            .map((post) => <Card {post} aboveFold={true} />)
+                    }
+                    {posts.slice(2).map((post) => <Card {post} />)}
                 </div>
             </div>
-            <aside class="sidebar">
+            <aside>
                 <SearchField />
                 <TagCloud />
             </aside>
