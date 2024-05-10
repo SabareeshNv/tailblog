@@ -1,20 +1,19 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Hero from "src/components/Hero.astro";
-import BlogPostTags from "src/components/BlogPostTags.astro";
 
-const { title, description, pubDate, tags, coverImage, coverAlt } = Astro.props;
+const { title, description, pubDate, coverImage, coverAlt } = Astro.props;
 const titleSEO = `${title} | LoneVoice.in`;
 const descSEO = `${description} | LoneVoice.in`;
 ---
 
 <BaseLayout title={titleSEO} description={descSEO}>
-    <main data-pagefind-body>
-        <Hero {title} {pubDate} {coverImage} {coverAlt} />
-        <div class="wrapper">
-            <div class="py-4 md:py-6 typography">
-                <slot />
-            </div>
-        </div>
-    </main>
+  <main data-pagefind-body>
+    <Hero {title} {pubDate} {coverImage} {coverAlt} />
+    <div class="wrapper">
+      <div class="py-4 md:py-6 typography">
+        <slot />
+      </div>
+    </div>
+  </main>
 </BaseLayout>
