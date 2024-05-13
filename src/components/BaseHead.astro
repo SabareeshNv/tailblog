@@ -1,7 +1,7 @@
 ---
 interface Props {
-    title: string;
-    description: string;
+  title: string;
+  description: string;
 }
 
 import "../styles/tailwind.css";
@@ -40,9 +40,9 @@ const { title, description } = Astro.props;
 <meta name="robots" content="index,follow" />
 {/* RSS feed auto-discovery */}
 <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="LoneVoice.in"
-    href={`${Astro.site}rss.xml`}
+  rel="alternate"
+  type="application/rss+xml"
+  title="LoneVoice.in"
+  href={`${Astro.site}rss.xml`}
 />
 <ViewTransitions />
