@@ -7,6 +7,10 @@ export default {
         "alegreya-sans": ['"Alegreya Sans"', "sans-serif"],
         "alegreya": ["Alegreya", "serif"],
       },
+      colors: {
+        "brand": "#990000",
+        "accent": "#f5f5f4",
+      },
       typography: {
         DEFAULT: {
           css: {
