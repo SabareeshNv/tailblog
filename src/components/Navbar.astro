@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+
 const nav = [
   { text: "Home", link: "/" },
   { text: "Blog", link: "/blog" },
@@ -9,13 +11,14 @@ const nav = [
 
 <header class="shadow py-3">
   <nav class="wrapper grid md:grid-cols-2">
-    <div class="text-center pb-3 md:pb-0 md:text-left">
-      <a
-        href="/"
-        class="font-alegreya font-bold text-2xl text-brand text-shadow"
-        >Lone Voice</a
-      >
-    </div>
+    <a
+      href="/"
+      class="pb-3 md:pb-0 flex gap-1 items-center justify-center md:justify-start"
+    >
+      <Icon name="logo" />
+      <span class="font-alegreya font-bold text-2xl"> Lone Voice</span></a
+    >
+
     <ul
       class="flex flex-wrap items-center justify-evenly md:justify-end md:gap-8 lg:gap-12"
     >
@@ -24,7 +27,7 @@ const nav = [
           <li>
             <a
               href={item.link}
-              class="text-lg lg:text-xl hover:text-brand hover:underline hover:underline-offset-8 hover:decoration-2"
+              class="text-lg hover:text-brand hover:underline hover:underline-offset-8 hover:decoration-2"
             >
               {item.text}
             </a>
@@ -34,3 +37,9 @@ const nav = [
     </ul>
   </nav>
 </header>
+
+<style>
+  [data-icon="logo"] {
+    font-size: 1.75rem;
+  }
+</style>

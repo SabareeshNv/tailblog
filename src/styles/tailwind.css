@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 :root {
+    --clr-brand: #990000;
     --clr-dark: #070504;
     --clr-accent: #f5f5f4;
     --clr-accent-hover: #d4d4d3ff;
